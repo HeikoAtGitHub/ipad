@@ -1,0 +1,3 @@
+# Automatische iPad-Synchronisation beim Einstecken des USB-Laufwerks "Linux"
+ACTION=="add", SUBSYSTEMS=="block", ENV{ID_FS_LABEL}=="Linux", \
+    RUN+="/usr/bin/systemctl --user start sync-ipad.service"
