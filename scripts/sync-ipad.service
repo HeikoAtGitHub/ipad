@@ -1,0 +1,7 @@
+[Unit]
+Description=Automatische iPad-Synchronisation bei USB-Verbindung
+After=default.target
+
+[Service]
+Type=oneshot
+ExecStart=/media/Linux/ipad/scripts/sync-ipad.sh
