@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer für automatisches Mounten des iPad-Laufwerks
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+Persistent=true
+Unit=auto-mount.service
+
+[Install]
+WantedBy=timers.target
