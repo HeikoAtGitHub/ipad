@@ -4,4 +4,4 @@ After=default.target
 
 [Service]
 Type=oneshot
-ExecStart=/media/Linux/ipad/scripts/sync-ipad.sh
+ExecStart=/media/Linux/repos/ipad/scripts/sync-ipad.sh
