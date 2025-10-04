@@ -1,0 +1,22 @@
+[Unit]
+Description=Automatisches Mounten und Überprüfen des iPad-Laufwerks
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c '
+  USB_LABEL="Linux"
+  MOUNT_POINT="/media/${USB_LABEL}"
+
+  if ! mountpoint -q "$MOUNT_POINT"; then
+    echo "🔌 Mounting ${USB_LABEL}..."
+    sudo mkdir -p "$MOUNT_POINT"
+    sudo mount -L "$USB_LABEL" "$MOUNT_POINT" || exit 1
+  fi
+
+  if mountpoint -q "$MOUNT_POINT"; then
+    echo "✅ ${USB_LABEL} ist gemountet."
+  else
+    echo "❌ Konnte ${USB_LABEL} nicht mounten."
+  fi
+'
